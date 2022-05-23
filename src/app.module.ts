@@ -10,6 +10,9 @@ import * as session from 'express-session'
 import * as passport from "passport"
 import {AuthLocalModule} from "./modules/auth-local/auth-local.module"
 import {BotModule} from "./modules/bot/bot.module"
+import { FileModule } from "./modules/file/file.module";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { postgresTypeOrmConfig } from "./config/typeorm.config";
 
 @Module({
     imports: [
@@ -18,10 +21,13 @@ import {BotModule} from "./modules/bot/bot.module"
             load: [configuration],
             envFilePath: ['.env'],
         }),
+        TypeOrmModule.forRootAsync(postgresTypeOrmConfig),
+
         RedisModule,
         AuthLocalModule,
         UserModule,
-        BotModule
+        BotModule ,
+        FileModule
     ],
     controllers: [AppController],
     providers: []
