@@ -4,7 +4,7 @@ import {ConnectDto, SignUpDto} from "./input-validation"
 import {User} from "../dto/bot.dto"
 import {AuthLocalGuard} from "../../auth-local/guard/auth-local.guard"
 import {AuthenticatedLocalGuard} from "../../auth-local/guard/authenticated-local.guard"
-import {MailService} from "../../../mail/mail.service"
+import {MailService} from "../../mail/mail.service"
 
 @Controller('bot')
 export class BotController {
